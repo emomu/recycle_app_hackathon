@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:recycle_app_hackathon/screens/first_page/first_page_view/first_page_view.dart';
-import 'package:recycle_app_hackathon/screens/splash_screen/splash_screen_view/splash_screen_view.dart';
 
 void main() {
   runApp(const MyApp());
