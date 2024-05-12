@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recycle_app_hackathon/repo/mediaQuery.dart';
 import 'package:recycle_app_hackathon/repo/myColor.dart';
+import 'package:recycle_app_hackathon/screens/sign_up/view/sign_up_view.dart';
 import 'package:recycle_app_hackathon/widgets/button.dart';
 
 class FirstPageView extends StatelessWidget with Responsive {
@@ -68,7 +69,8 @@ class FirstPageView extends StatelessWidget with Responsive {
           MyButton(
               text: "Kayıt Ol",
               darkLightTheme: false,
-              tap: () => print("Kayıt Ol"))
+              tap: () => Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (builder) => SignUpView())))
         ]),
       ),
     );

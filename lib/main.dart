@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recycle_app_hackathon/screens/sign_up/view/sign_up_view.dart';
 import 'package:recycle_app_hackathon/screens/splash_screen/splash_screen_view/splash_screen_view.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
             ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 78, 75, 83)),
         useMaterial3: true,
       ),
-      home: SplashScreen(),
+      home: SignUpView(),
     );
   }
 }
