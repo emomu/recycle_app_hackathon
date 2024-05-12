@@ -33,7 +33,7 @@ class SignUpView extends StatelessWidget with Responsive {
                     "Üye Kaydı",
                     style: TextStyle(
                         color: MyColor.lightBrown,
-                        fontFamily: "Prompt",
+                        fontFamily: "Mukta",
                         fontSize: screenWidth / 12.1),
                   )
                 ],
