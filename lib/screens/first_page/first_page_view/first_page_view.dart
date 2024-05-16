@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:recycle_app_hackathon/repo/mediaQuery.dart';
 import 'package:recycle_app_hackathon/repo/myColor.dart';
+import 'package:recycle_app_hackathon/screens/login/view/login_view.dart';
 import 'package:recycle_app_hackathon/screens/sign_up/view/sign_up_view.dart';
 import 'package:recycle_app_hackathon/widgets/button.dart';
+import 'package:recycle_app_hackathon/widgets/myTextWidget.dart';
 
 class FirstPageView extends StatelessWidget with Responsive {
   FirstPageView({super.key});
@@ -17,38 +19,14 @@ class FirstPageView extends StatelessWidget with Responsive {
           SizedBox(
             height: screenHeight / 9.7,
           ),
-          Container(
-            width: double.maxFinite,
-            height: screenHeight / 6.9,
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Küçük Adımlar",
-                      style: TextStyle(
-                          color: MyColor.lightBrown,
-                          fontSize: 40,
-                          fontFamily: 'Mukta'),
-                    )
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Büyük Değişimler",
-                      style: TextStyle(
-                          color: MyColor.darkBrown,
-                          fontSize: 45,
-                          fontFamily: 'Mukta'),
-                    )
-                  ],
-                ),
-              ],
-            ),
-          ),
+          MyTextWidget(
+              fontSize: screenWidth / 11,
+              color: MyColor.lightBrown,
+              text: "Küçük Adımlar"),
+          MyTextWidget(
+              fontSize: screenWidth / 9,
+              color: MyColor.darkBrown,
+              text: "Büyük Değişimler"),
           SizedBox(
             height: screenHeight / 13.6,
           ),
@@ -62,7 +40,8 @@ class FirstPageView extends StatelessWidget with Responsive {
           MyButton(
               text: "Giriş Yap",
               darkLightTheme: true,
-              tap: () => print("Giriş Yap")),
+              tap: () => Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => LoginView()))),
           SizedBox(
             height: screenHeight / 60,
           ),
