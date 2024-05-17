@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:recycle_app_hackathon/repo/mediaQuery.dart';
 import 'package:recycle_app_hackathon/repo/myColor.dart';
+import 'package:recycle_app_hackathon/screens/login/view/login_view.dart';
+import 'package:recycle_app_hackathon/screens/sign_up/service/sign_up_service.dart';
 import 'package:recycle_app_hackathon/widgets/button.dart';
 import 'package:recycle_app_hackathon/widgets/textField.dart';
 
@@ -12,8 +14,6 @@ class SignUpView extends StatelessWidget with Responsive {
     double screenHeight = getScreenHeight(context);
     double screenWidth = getScreenWidth(context);
     TextEditingController nameController = TextEditingController();
-    TextEditingController surnameController = TextEditingController();
-    TextEditingController numberController = TextEditingController();
     TextEditingController emailController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
     TextEditingController rePasswordController = TextEditingController();
@@ -43,25 +43,13 @@ class SignUpView extends StatelessWidget with Responsive {
               ),
               Container(
                 width: double.maxFinite,
-                height: screenHeight / 2.3,
+                height: screenHeight / 3.7,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     MyTextField(
                         textController: nameController,
-                        hText: "Adınız",
-                        suffix: null,
-                        isPassword: false,
-                        changedText: (text) => null),
-                    MyTextField(
-                        textController: surnameController,
-                        hText: "Soyadınız",
-                        suffix: null,
-                        isPassword: false,
-                        changedText: (text) => null),
-                    MyTextField(
-                        textController: numberController,
-                        hText: "Numaranız",
+                        hText: "Adınız Soyadınız",
                         suffix: null,
                         isPassword: false,
                         changedText: (text) => null),
@@ -89,7 +77,17 @@ class SignUpView extends StatelessWidget with Responsive {
               SizedBox(
                 height: screenHeight / 15,
               ),
-              MyButton(text: "Kayıt Ol", darkLightTheme: false, tap: () => null)
+              MyButton(
+                  text: "Kayıt Ol",
+                  darkLightTheme: false,
+                  tap: () {
+                    AuthService().signUp(context,
+                        name: nameController.text,
+                        mail: emailController.text,
+                        password: passwordController.text);
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => LoginView()));
+                  })
             ],
           ),
         ),
